@@ -79,14 +79,21 @@ const signIn = (req, res) => {
     if (user) {
       bcrypt.compare(req.body.password, user.password)
       .then(success => {
-        jwt.sign({
-          username : user.username,
-          access : user.access
-        }, process.env.SECRET_KEY, (err, token) => {
-          err
-          ? res.send(err)
-          : res.send(token)
-        })
+        if (success) {
+          jwt.sign({
+            username : user.username,
+            access : user.access
+          }, process.env.SECRET_KEY, (err, token) => {
+            err
+            ? res.send(err)
+            : res.send(token)
+          })
+        }
+        else {
+          res.status(401).send({
+            message : "invalid username or password"
+          })
+        }
       })
     }
     else {
