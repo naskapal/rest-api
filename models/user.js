@@ -4,7 +4,10 @@ module.exports = (sequelize, DataTypes) => {
   var User = sequelize.define('User', {
     username: DataTypes.STRING,
     password: DataTypes.STRING,
-    access: DataTypes.INTEGER
+    access: {
+      type : DataTypes.INTEGER,
+      defaultValue: '2'
+    }
   });
   
   User.beforeCreate((user, option) => {

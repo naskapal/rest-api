@@ -6,13 +6,17 @@ My first REST API program
 
  Route | Method | Description
  ------|--------|-------------
- /api/users | GET | Get all users
- /api/users/:id | GET | Get a user
- /api/users | POST | Create a user
- /api/users/:id | DELETE | Delete a user
- /api/users/:id | PUT | Update user data
+ /users | GET | Get all users
+ /users/:id | GET | Get a user
+ /users | POST | Create a user
+ /users/:id | DELETE | Delete a user
+ /users/:id | PUT | Update user data
  
- # Usage
+ ## Requirements
+ you need to provide your own secret key, fill it in `.env-variables`, and then rename it to `.env`
+ then you can run the command
+ 
+  # Usage
  with only npm :
  ````CLI
  npm install
